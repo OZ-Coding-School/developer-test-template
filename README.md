@@ -1,16 +1,72 @@
-# React + Vite
+# 나는 어떤 개발자일까?
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+개발자 유형 테스트를 제공하는 사이드 프로젝트입니다.
 
-Currently, two official plugins are available:
+## 시작하기
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 요구 사항
 
-## React Compiler
+- Node.js 18+
+- pnpm
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 설치 및 실행
 
-## Expanding the ESLint configuration
+```bash
+# 의존성 설치
+pnpm install
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# 개발 서버 실행
+pnpm dev
+
+# 프로덕션 빌드
+pnpm build
+```
+
+### 환경 변수
+
+`.env` 파일을 생성하고 다음 변수를 설정하세요:
+
+```
+VITE_API_URL=<API 서버 주소>
+```
+
+## 기술 스택
+
+| 분류        | 기술                        |
+| ----------- | --------------------------- |
+| Framework   | React 19, Vite 7            |
+| Styling     | Tailwind CSS 4              |
+| Routing     | React Router 7              |
+| 서버 상태   | TanStack React Query        |
+| 클라이언트 상태 | Zustand                 |
+| HTTP Client | Axios                       |
+| Animation   | Motion                      |
+| Mock        | MSW                         |
+
+## 프로젝트 구조
+
+```
+src/
+├── api/           # Axios 인스턴스, 인터셉터, API 서비스
+├── components/    # React 컴포넌트 (common/ 공통 컴포넌트)
+├── hooks/         # 커스텀 훅 (queries/, mutations/)
+├── lib/           # 설정 및 유틸리티
+├── pages/         # 페이지 컴포넌트
+├── store/         # Zustand 스토어
+└── utils/         # 유틸리티 함수
+```
+
+## 코드 품질
+
+- **ESLint**: React Hooks, TanStack Query 플러그인 적용
+- **Prettier**: Tailwind 클래스 자동 정렬
+- **Husky**: pre-commit 훅으로 lint-staged 실행
+
+## 협업 가이드
+
+컨벤션 문서는 [docs/CONVENTIONS.md](./docs/CONVENTIONS.md)를 참고하세요.
+
+- 커밋 메시지 컨벤션
+- 브랜치명 컨벤션
+- PR Title 컨벤션
+- Git Flow
